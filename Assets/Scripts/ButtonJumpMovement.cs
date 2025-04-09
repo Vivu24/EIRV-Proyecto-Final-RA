@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonMovement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class ButtonJumpMovement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public enum Direccion { Izquierda, Derecha }
     public Direccion direccion;
