@@ -84,8 +84,6 @@ public class GameManager : MonoBehaviour
     public void GoToBed()
     {
         Time.timeScale = 1f; // Asegura que el juego no quede pausado
-        jumpMinigame.SetActive(true);
-        houseEnviroment.SetActive(false);
-        menuCanvas.SetActive(false);
+        light.SetActive(false);
     }
 }
