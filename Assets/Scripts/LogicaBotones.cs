@@ -15,9 +15,8 @@ public class LogicaBotones : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
-
     public void Jugar()
     {
-        SceneManager.LoadScene("Jugar");
+        SceneManager.LoadScene("ARGame");
     }
 }
