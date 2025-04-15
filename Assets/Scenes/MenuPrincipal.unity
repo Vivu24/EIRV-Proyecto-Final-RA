@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 2013752342}
   - component: {fileID: 2013752341}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LogicaBotones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
