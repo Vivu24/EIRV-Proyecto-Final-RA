@@ -7,17 +7,17 @@ using UnityEngine.UI;
 public class LogicaBotones : MonoBehaviour
 {
     private GameObject objetoDucha;
+    private GameObject menuPausa;
 
     private void Start()
     {
         objetoDucha = GameObject.FindWithTag("Ducha");
         if(objetoDucha != null)
             objetoDucha.SetActive(false);
-    }
 
-    public void Ajustes()
-    {
-        SceneManager.LoadScene("Ajustes");
+        menuPausa = GameObject.FindWithTag("MenuPausa");
+        if (menuPausa != null)
+            menuPausa.SetActive(false);
     }
 
     public void MenuPrincipal()
@@ -58,5 +58,24 @@ public class LogicaBotones : MonoBehaviour
     public void Dormir()
     {
         //SceneManager.LoadScene("ARGame");
+    }
+
+    public void Settings()
+    {
+        if (menuPausa != null)
+        {
+            if (menuPausa.activeSelf)
+            {
+                menuPausa.SetActive(false);
+            }
+            else
+            {
+                menuPausa.SetActive(true);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró ningún objeto con el tag 'MenuPausa'.");
+        }
     }
 }

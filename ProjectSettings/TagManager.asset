@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Ducha
+  - MenuPausa
   layers:
   - Default
   - TransparentFX
