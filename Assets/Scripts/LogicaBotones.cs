@@ -53,11 +53,11 @@ public class LogicaBotones : MonoBehaviour
 
     public void Comer()
     {
-        //SceneManager.LoadScene("ARGame");
+       
     }
     public void Dormir()
     {
-        //SceneManager.LoadScene("ARGame");
+      
     }
 
     public void Settings()
