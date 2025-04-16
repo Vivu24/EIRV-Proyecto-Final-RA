@@ -11,7 +11,8 @@ public class LogicaBotones : MonoBehaviour
     private void Start()
     {
         objetoDucha = GameObject.FindWithTag("Ducha");
-        objetoDucha.SetActive(false);
+        if(objetoDucha != null)
+            objetoDucha.SetActive(false);
     }
 
     public void Ajustes()
