@@ -9,6 +9,21 @@ public class LogicaBotones : MonoBehaviour
     private GameObject objetoDucha;
     private GameObject menuPausa;
 
+    [SerializeField] GameObject[] frutas;
+    [SerializeField] GameObject frutasSpawner;
+    [SerializeField] GameObject eatPos;
+    [SerializeField] AudioClip sonidoComer;
+
+    [SerializeField] GameObject bed;
+    [SerializeField] AudioClip sonidoDormir;
+    [SerializeField] GameObject bicho;
+    [SerializeField] GameObject zzzEffect;
+
+    private AudioSource audioSource;
+    private Vector3 posicionInicialBicho;
+    private bool estaDurmiendo = false;
+    private GameObject zzzInstancia;
+
     private void Start()
     {
         objetoDucha = GameObject.FindWithTag("Ducha");
@@ -18,6 +33,11 @@ public class LogicaBotones : MonoBehaviour
         menuPausa = GameObject.FindWithTag("MenuPausa");
         if (menuPausa != null)
             menuPausa.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
+
+        posicionInicialBicho = bicho.transform.position;
+
     }
 
     public void MenuPrincipal()
@@ -53,11 +73,57 @@ public class LogicaBotones : MonoBehaviour
 
     public void Comer()
     {
-       
+        GameObject frutaElegida = frutas[Random.Range(0, frutas.Length)];
+
+        Vector3 posicionInicial = eatPos.transform.position + new Vector3(0, 2f, 0);
+        GameObject fruta = Instantiate(frutaElegida, posicionInicial, Quaternion.identity, frutasSpawner.transform);
+
+        StartCoroutine(ComerComida(fruta));
+
+     
+    }
+
+    private IEnumerator ComerComida(GameObject fruta)
+    {
+        float velocidad = 2f;
+
+        while (fruta != null && fruta.transform.position.y > eatPos.transform.position.y + 0.1f)
+        {
+            Vector3 direccion = (eatPos.transform.position - fruta.transform.position).normalized;
+            fruta.transform.position += direccion * velocidad * Time.deltaTime;
+            yield return null;
+        }
+
+        audioSource.PlayOneShot(sonidoComer);
+        Destroy(fruta);
     }
     public void Dormir()
     {
-      
+        if (!estaDurmiendo)
+        {
+          
+            bed.SetActive(true);
+            bed.transform.position = bicho.transform.position;
+
+            bicho.transform.position = bed.transform.position + new Vector3(0, 1.25f, 0);
+
+            audioSource.PlayOneShot(sonidoDormir);
+
+            zzzInstancia = Instantiate(zzzEffect, bicho.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, bicho.transform);
+
+            estaDurmiendo = true;
+        }
+        else
+        {
+            bicho.transform.position = posicionInicialBicho;
+
+            bed.SetActive(false);
+
+            if (zzzInstancia != null)
+                Destroy(zzzInstancia);
+
+            estaDurmiendo = false;
+        }
     }
 
     public void Settings()
