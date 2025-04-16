@@ -22,7 +22,6 @@ public class LogicaBotones : MonoBehaviour
     private AudioSource audioSource;
     private Vector3 posicionInicialBicho;
     private bool estaDurmiendo = false;
-    private GameObject zzzInstancia;
 
     private void Start()
     {
@@ -103,24 +102,27 @@ public class LogicaBotones : MonoBehaviour
         {
           
             bed.SetActive(true);
+            zzzEffect.SetActive(true);
             bed.transform.position = bicho.transform.position;
 
             bicho.transform.position = bed.transform.position + new Vector3(0, 1.25f, 0);
 
-            audioSource.PlayOneShot(sonidoDormir);
-
-            zzzInstancia = Instantiate(zzzEffect, bicho.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity, bicho.transform);
+            audioSource.clip = sonidoDormir;
+            audioSource.loop = true;
+            audioSource.Play();
 
             estaDurmiendo = true;
         }
         else
         {
-            bicho.transform.position = posicionInicialBicho;
+            bicho.transform.position = bed.transform.position;
+
+            audioSource.Stop();
+            audioSource.loop = false;
 
             bed.SetActive(false);
 
-            if (zzzInstancia != null)
-                Destroy(zzzInstancia);
+            zzzEffect.SetActive(false);
 
             estaDurmiendo = false;
         }
