@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,17 +8,16 @@ using UnityEngine.UI;
 public class LogicaBotones : MonoBehaviour
 {
     private GameObject objetoDucha;
+    private GameObject efectoDormir;
     private GameObject menuPausa;
 
     [SerializeField] GameObject[] frutas;
     [SerializeField] GameObject frutasSpawner;
-    [SerializeField] GameObject eatPos;
+    private GameObject eatPos;
     [SerializeField] AudioClip sonidoComer;
 
-    [SerializeField] GameObject bed;
     [SerializeField] AudioClip sonidoDormir;
-    [SerializeField] GameObject bicho;
-    [SerializeField] GameObject zzzEffect;
+    private GameObject bicho;
 
     private AudioSource audioSource;
     private Vector3 posicionInicialBicho;
@@ -33,12 +33,18 @@ public class LogicaBotones : MonoBehaviour
         if (menuPausa != null)
             menuPausa.SetActive(false);
 
+        efectoDormir = GameObject.FindWithTag("Dormir");
+        if (efectoDormir != null)
+            efectoDormir.SetActive(false);
+
         audioSource = GetComponent<AudioSource>();
 
-        posicionInicialBicho = bicho.transform.position;
-
+        bicho = GameObject.FindWithTag("Player");
+        if (bicho != null)
+            posicionInicialBicho = bicho.transform.position;
     }
 
+    #region Cambio de Escenas
     public void MenuPrincipal()
     {
         SceneManager.LoadScene("MenuPrincipal");
@@ -51,6 +57,7 @@ public class LogicaBotones : MonoBehaviour
     {
         SceneManager.LoadScene("ARSaltos");
     }
+    #endregion
     public void Ducha()
     {
         if (objetoDucha != null)
@@ -78,8 +85,6 @@ public class LogicaBotones : MonoBehaviour
         GameObject fruta = Instantiate(frutaElegida, posicionInicial, Quaternion.identity, frutasSpawner.transform);
 
         StartCoroutine(ComerComida(fruta));
-
-     
     }
 
     private IEnumerator ComerComida(GameObject fruta)
@@ -96,16 +101,14 @@ public class LogicaBotones : MonoBehaviour
         audioSource.PlayOneShot(sonidoComer);
         Destroy(fruta);
     }
+
     public void Dormir()
     {
         if (!estaDurmiendo)
         {
-          
-            bed.SetActive(true);
-            zzzEffect.SetActive(true);
-            bed.transform.position = bicho.transform.position;
+            efectoDormir.SetActive(true);
 
-            bicho.transform.position = bed.transform.position + new Vector3(0, 1.25f, 0);
+            bicho.transform.position += new Vector3(0, 1.25f, 0);
 
             audioSource.clip = sonidoDormir;
             audioSource.loop = true;
@@ -115,14 +118,12 @@ public class LogicaBotones : MonoBehaviour
         }
         else
         {
-            bicho.transform.position = bed.transform.position;
+            bicho.transform.position -= new Vector3(0, 1.25f, 0);
 
             audioSource.Stop();
             audioSource.loop = false;
 
-            bed.SetActive(false);
-
-            zzzEffect.SetActive(false);
+            efectoDormir.SetActive(false);
 
             estaDurmiendo = false;
         }

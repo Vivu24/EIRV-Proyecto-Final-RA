@@ -918,6 +918,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f00188af612204e91e4c63b87e3d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frutas:
+  - {fileID: 7090000081690452566, guid: 06fb90faaf9d6e84dbf735b921683aee, type: 3}
+  - {fileID: 5882146166323527522, guid: a964a0024cdd6d34b8d346175b871735, type: 3}
+  - {fileID: 8275723797897300795, guid: aafcdaa9bbaa8314486ef45d206d53f2, type: 3}
+  - {fileID: 2579262722937850041, guid: 86c3bf2ce4713e74aa9f6f3ec6f01480, type: 3}
+  - {fileID: 8709181005875338377, guid: 48a2424eb08f9794f9e30743147c9113, type: 3}
+  - {fileID: 4080546556539267070, guid: 2163d75a580772d46abc4ce750759f0a, type: 3}
+  frutasSpawner: {fileID: 0}
+  sonidoComer: {fileID: 8300000, guid: 379f5fe2fcdf0bf4db15113f4719e384, type: 3}
+  sonidoDormir: {fileID: 8300000, guid: 449b06c1877e14f4f8f1d279ead03db6, type: 3}
 --- !u!4 &2013752342
 Transform:
   m_ObjectHideFlags: 0
