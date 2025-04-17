@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject jumpMinigame;
     public GameObject houseEnviroment;
-    public GameObject light;
 
     public static GameManager Instance { get; private set; }
 
@@ -84,6 +83,5 @@ public class GameManager : MonoBehaviour
     public void GoToBed()
     {
         Time.timeScale = 1f; // Asegura que el juego no quede pausado
-        light.SetActive(false);
     }
 }

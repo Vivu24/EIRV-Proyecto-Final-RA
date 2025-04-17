@@ -336,37 +336,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164857819}
   m_CullTransparentMesh: 1
---- !u!1 &333456413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 333456414}
-  m_Layer: 0
-  m_Name: EatPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &333456414
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333456413}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0.17417149, z: 0}
-  m_LocalScale: {x: 0.5904116, y: 0.5904118, z: 0.5904116}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 18848524}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &418767912
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +498,6 @@ MonoBehaviour:
   - {fileID: 8709181005875338377, guid: 48a2424eb08f9794f9e30743147c9113, type: 3}
   - {fileID: 4080546556539267070, guid: 2163d75a580772d46abc4ce750759f0a, type: 3}
   frutasSpawner: {fileID: 1144302529}
-  eatPos: {fileID: 333456413}
   sonidoComer: {fileID: 8300000, guid: 379f5fe2fcdf0bf4db15113f4719e384, type: 3}
   sonidoDormir: {fileID: 8300000, guid: 449b06c1877e14f4f8f1d279ead03db6, type: 3}
 --- !u!82 &471478678
@@ -1657,10 +1625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -1668918428060068282, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 333456414}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -4161369568681901532, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
 --- !u!1 &1130190889

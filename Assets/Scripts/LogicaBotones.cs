@@ -13,14 +13,14 @@ public class LogicaBotones : MonoBehaviour
 
     [SerializeField] GameObject[] frutas;
     [SerializeField] GameObject frutasSpawner;
-    private GameObject eatPos;
+    private Vector3 eatPos;
     [SerializeField] AudioClip sonidoComer;
 
     [SerializeField] AudioClip sonidoDormir;
     private GameObject bicho;
 
     private AudioSource audioSource;
-    private Vector3 posicionInicialBicho;
+    private Transform initTransformBicho;
     private bool estaDurmiendo = false;
 
     private void Start()
@@ -41,7 +41,15 @@ public class LogicaBotones : MonoBehaviour
 
         bicho = GameObject.FindWithTag("Player");
         if (bicho != null)
-            posicionInicialBicho = bicho.transform.position;
+        {
+            initTransformBicho = bicho.transform;
+        }
+    }
+
+    private void Update()
+    {
+        if(bicho != null)
+            eatPos = bicho.transform.position + new Vector3(0, 0.5f, 0);
     }
 
     #region Cambio de Escenas
@@ -58,6 +66,8 @@ public class LogicaBotones : MonoBehaviour
         SceneManager.LoadScene("ARSaltos");
     }
     #endregion
+
+    #region Ducha
     public void Ducha()
     {
         if (objetoDucha != null)
@@ -76,12 +86,14 @@ public class LogicaBotones : MonoBehaviour
             Debug.LogWarning("No se encontró ningún objeto con el tag 'Ducha'.");
         }
     }
+    #endregion
 
+    #region Comida
     public void Comer()
     {
         GameObject frutaElegida = frutas[Random.Range(0, frutas.Length)];
 
-        Vector3 posicionInicial = eatPos.transform.position + new Vector3(0, 2f, 0);
+        Vector3 posicionInicial = eatPos + new Vector3(0, 2f, 0);
         GameObject fruta = Instantiate(frutaElegida, posicionInicial, Quaternion.identity, frutasSpawner.transform);
 
         StartCoroutine(ComerComida(fruta));
@@ -91,9 +103,9 @@ public class LogicaBotones : MonoBehaviour
     {
         float velocidad = 2f;
 
-        while (fruta != null && fruta.transform.position.y > eatPos.transform.position.y + 0.1f)
+        while (fruta != null && fruta.transform.position.y > eatPos.y + 0.1f)
         {
-            Vector3 direccion = (eatPos.transform.position - fruta.transform.position).normalized;
+            Vector3 direccion = (eatPos - fruta.transform.position).normalized;
             fruta.transform.position += direccion * velocidad * Time.deltaTime;
             yield return null;
         }
@@ -101,7 +113,9 @@ public class LogicaBotones : MonoBehaviour
         audioSource.PlayOneShot(sonidoComer);
         Destroy(fruta);
     }
+    #endregion
 
+    #region Dormir
     public void Dormir()
     {
         if (!estaDurmiendo)
@@ -128,6 +142,7 @@ public class LogicaBotones : MonoBehaviour
             estaDurmiendo = false;
         }
     }
+    #endregion
 
     public void Settings()
     {
