@@ -9,6 +9,8 @@ TagManager:
   - MenuPausa
   - Dormir
   - Comer
+  - Minijuego
+  - Hall
   layers:
   - Default
   - TransparentFX

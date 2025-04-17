@@ -2,37 +2,35 @@ using UnityEngine;
 
 public class MinigameMover : MonoBehaviour
 {
-    public float scrollSpeed = 1f;
-    public Transform player;
-    public float scrollThreshold = 3f;
+    public float scrollSpeed = 1f;              // Velocidad de movimiento del mundo hacia abajo
+    public Transform player;                    // Referencia al jugador
+    public float scrollThreshold = 3f;          // Altura que el jugador debe alcanzar para que comience el scroll
 
-    private float lastPlayerY;
-    private bool gameStarted = false;
+    private float initialPlayerY;               // Altura inicial del jugador
+    private bool gameStarted = false;           // Controla si el juego ya empezó
 
     void Start()
     {
         if (player != null)
-            lastPlayerY = player.localPosition.y;
+            initialPlayerY = player.localPosition.y;
     }
 
     void Update()
     {
         if (player == null) return;
 
-        float deltaY = player.localPosition.y - lastPlayerY;
+        // Verificar si el jugador ha subido lo suficiente para comenzar el movimiento del mundo
+        float totalDeltaY = player.localPosition.y - initialPlayerY;
 
-        // Detectar si el jugador hizo el primer salto (o subió suficiente)
-        if (!gameStarted && deltaY > scrollThreshold)
+        if (!gameStarted && totalDeltaY > scrollThreshold)
         {
             gameStarted = true;
         }
 
-        // Si ya empezó el juego, mover el mundo
-        if (gameStarted && deltaY > scrollThreshold)
+        // Mover el mundo hacia abajo de forma constante una vez empezado
+        if (gameStarted)
         {
-            float moveAmount = deltaY * scrollSpeed;
-            transform.position -= new Vector3(0f, moveAmount, 0f);
-            lastPlayerY = player.localPosition.y;
+            transform.position -= new Vector3(0f, scrollSpeed * Time.deltaTime, 0f);
         }
     }
 }

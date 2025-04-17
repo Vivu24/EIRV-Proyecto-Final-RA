@@ -10,6 +10,8 @@ public class LogicaBotones : MonoBehaviour
     private GameObject objetoDucha;
     private GameObject efectoDormir;
     private GameObject menuPausa;
+    private GameObject miniJuego;
+    private GameObject hall;
 
     [SerializeField] GameObject[] frutas;
     [SerializeField] GameObject frutasSpawner;
@@ -37,6 +39,16 @@ public class LogicaBotones : MonoBehaviour
         if (efectoDormir != null)
             efectoDormir.SetActive(false);
 
+        efectoDormir = GameObject.FindWithTag("Dormir");
+        if (efectoDormir != null)
+            efectoDormir.SetActive(false);
+
+        hall = GameObject.FindWithTag("Hall");
+
+        miniJuego = GameObject.FindWithTag("Minijuego");
+        if (miniJuego != null)
+            miniJuego.SetActive(false);
+
         audioSource = GetComponent<AudioSource>();
 
         bicho = GameObject.FindWithTag("Player");
@@ -61,9 +73,13 @@ public class LogicaBotones : MonoBehaviour
     {
         SceneManager.LoadScene("ARGame");
     }
+
     public void Saltos()
     {
-        SceneManager.LoadScene("ARSaltos");
+        miniJuego.SetActive(true);
+
+        bicho.SetActive(false);
+        hall.SetActive(false);
     }
     #endregion
 
