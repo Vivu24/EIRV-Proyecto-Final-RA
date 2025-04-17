@@ -1,28 +1,64 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallLauncher : MonoBehaviour
 {
     public GameObject ballPrefab;
-    public Transform spawnPoint;
-    public float launchForce = 10f;
-    public float upwardForce = 5f;
+    public Transform cameraTransform;
+
+    public float minForce = 5f;
+    public float maxForce = 20f;
+    public float chargeSpeed = 10f;
+
+    public Slider chargeSlider;
+
+    private float currentForce = 0f;
+    private bool isCharging = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isCharging)
         {
-            LaunchBall();
+            currentForce += chargeSpeed * Time.deltaTime;
+            currentForce = Mathf.Clamp(currentForce, minForce, maxForce);
+
+            // Actualizar barra
+            if (chargeSlider)
+                chargeSlider.value = (currentForce - minForce) / (maxForce - minForce);
         }
     }
 
-    void LaunchBall()
+    public void StartCharging()
     {
-        GameObject ball = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
+        currentForce = minForce;
+        isCharging = true;
+
+        if (chargeSlider)
+        {
+            chargeSlider.gameObject.SetActive(true);
+            chargeSlider.value = 0;
+        }
+    }
+
+    public void ReleaseBall()
+    {
+        if (isCharging)
+        {
+            LaunchBall(currentForce);
+            isCharging = false;
+
+            if (chargeSlider)
+                chargeSlider.gameObject.SetActive(false);
+        }
+    }
+
+    void LaunchBall(float force)
+    {
+        Vector3 spawnPos = cameraTransform.position + cameraTransform.forward * 0.5f;
+        GameObject ball = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
+
         Rigidbody rb = ball.GetComponent<Rigidbody>();
-
-        // Dirección hacia adelante + fuerza hacia arriba
-        Vector3 launchDirection = transform.forward * launchForce + transform.up * upwardForce;
-
-        rb.AddForce(launchDirection, ForceMode.Impulse);
+        Vector3 launchDir = cameraTransform.forward * force;
+        rb.AddForce(launchDir, ForceMode.Impulse);
     }
 }
