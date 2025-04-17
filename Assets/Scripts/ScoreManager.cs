@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        highestY = player.position.y;
+        highestY = player.localPosition.y;
         gameOverPanel.SetActive(false);
     }
 
@@ -22,15 +22,15 @@ public class ScoreManager : MonoBehaviour
     {
         if (isGameOver) return;
 
-        // Actualizar score
-        if (player.position.y > highestY)
+        // Actualizar score basado en altura local (relativa al PlatformMinigame)
+        if (player.localPosition.y > highestY)
         {
-            highestY = player.position.y;
+            highestY = player.localPosition.y;
             scoreText.text = "Puntuación: " + Mathf.FloorToInt(highestY).ToString();
         }
 
-        // Detectar caída
-        if (player.position.y < highestY - fallThreshold)
+        // Detectar caída relativa
+        if (player.localPosition.y < highestY - fallThreshold)
         {
             GameOver();
         }
