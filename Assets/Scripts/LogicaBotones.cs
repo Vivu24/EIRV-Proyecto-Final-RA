@@ -23,7 +23,10 @@ public class LogicaBotones : MonoBehaviour
 
     private AudioSource audioSource;
     private Transform initTransformBicho;
+
     private bool estaDurmiendo = false;
+    private bool estaComiendo = false;
+    private bool estaDuchando = false;
 
     private void Start()
     {
@@ -38,10 +41,6 @@ public class LogicaBotones : MonoBehaviour
         efectoDormir = GameObject.FindWithTag("Dormir");
         if (efectoDormir != null)
             efectoDormir.SetActive(false);
-
-        //efectoDormir = GameObject.FindWithTag("Dormir");
-        //if (efectoDormir != null)
-        //    efectoDormir.SetActive(false);
 
         hall = GameObject.FindWithTag("Hall");
 
@@ -91,10 +90,12 @@ public class LogicaBotones : MonoBehaviour
             if (objetoDucha.activeSelf)
             {
                 objetoDucha.SetActive(false);
+                estaDuchando = false;
             }
-            else
+            else if(!efectoDormir.activeSelf && !estaComiendo)
             {
                 objetoDucha.SetActive(true);
+                estaDuchando = true;
             }
         }
         else
@@ -107,12 +108,16 @@ public class LogicaBotones : MonoBehaviour
     #region Comida
     public void Comer()
     {
-        GameObject frutaElegida = frutas[Random.Range(0, frutas.Length)];
+        if(!estaDurmiendo && !estaDuchando)
+        {
+            estaComiendo = true;
+            GameObject frutaElegida = frutas[Random.Range(0, frutas.Length)];
 
-        Vector3 posicionInicial = eatPos + new Vector3(0, 2f, 0);
-        GameObject fruta = Instantiate(frutaElegida, posicionInicial, Quaternion.identity, frutasSpawner.transform);
+            Vector3 posicionInicial = eatPos + new Vector3(0, 2f, 0);
+            GameObject fruta = Instantiate(frutaElegida, posicionInicial, Quaternion.identity, frutasSpawner.transform);
 
-        StartCoroutine(ComerComida(fruta));
+            StartCoroutine(ComerComida(fruta));
+        }
     }
 
     private IEnumerator ComerComida(GameObject fruta)
@@ -128,13 +133,14 @@ public class LogicaBotones : MonoBehaviour
 
         audioSource.PlayOneShot(sonidoComer);
         Destroy(fruta);
+        estaComiendo = false;
     }
     #endregion
 
     #region Dormir
     public void Dormir()
     {
-        if (!estaDurmiendo)
+        if (!estaDurmiendo && !estaComiendo && !estaDuchando)
         {
             efectoDormir.SetActive(true);
 
@@ -146,7 +152,7 @@ public class LogicaBotones : MonoBehaviour
 
             estaDurmiendo = true;
         }
-        else
+        else if(estaDurmiendo)
         {
             bicho.transform.position -= new Vector3(0, 1.25f, 0);
 
