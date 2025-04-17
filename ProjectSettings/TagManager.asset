@@ -12,6 +12,7 @@ TagManager:
   - Minijuego
   - Hall
   - Cama
+  - Ball
   layers:
   - Default
   - TransparentFX
