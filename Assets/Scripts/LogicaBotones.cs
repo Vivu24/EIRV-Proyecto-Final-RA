@@ -12,6 +12,7 @@ public class LogicaBotones : MonoBehaviour
     private GameObject menuPausa;
     private GameObject miniJuego;
     private GameObject hall;
+    private GameObject settings;
 
     [SerializeField] GameObject[] frutas;
     [SerializeField] GameObject frutasSpawner;
@@ -47,6 +48,8 @@ public class LogicaBotones : MonoBehaviour
         miniJuego = GameObject.FindWithTag("Minijuego");
         if (miniJuego != null)
             miniJuego.SetActive(false);
+
+        settings = GameObject.FindWithTag("Settings");
 
         audioSource = GetComponent<AudioSource>();
 
@@ -170,18 +173,18 @@ public class LogicaBotones : MonoBehaviour
     {
         if (menuPausa != null)
         {
-            if (menuPausa.activeSelf)
-            {
-                menuPausa.SetActive(false);
-            }
-            else
-            {
-                menuPausa.SetActive(true);
-            }
+            menuPausa.SetActive(true);
+            settings.SetActive(false);
         }
         else
         {
             Debug.LogWarning("No se encontró ningún objeto con el tag 'MenuPausa'.");
         }
+    }
+
+    public void BackToGame()
+    {
+        menuPausa.SetActive(false);
+        settings.SetActive(true);
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - Hall
   - Cama
   - Ball
+  - Settings
   layers:
   - Default
   - TransparentFX
