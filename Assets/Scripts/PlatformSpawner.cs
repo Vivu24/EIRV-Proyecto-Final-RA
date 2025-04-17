@@ -41,9 +41,11 @@ public class PlatformSpawner : MonoBehaviour
         float zPosition = Random.Range(minZ, maxZ);
 
         GameObject newPlatform = Instantiate(platformPrefab);
-        newPlatform.transform.SetParent(platformSpawner.transform, false);
-        newPlatform.transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
+
+        // Asegurarse de que la plataforma tenga una posición global, no local.
+        newPlatform.transform.position = new Vector3(xPosition, yPosition, zPosition);
 
         platforms.Add(newPlatform);
     }
+
 }

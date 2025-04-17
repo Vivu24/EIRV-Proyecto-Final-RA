@@ -20,7 +20,7 @@ public class PlayerMobileController : MonoBehaviour
     {
         Vector3 velocity = rb.velocity;
 
-        // Movimiento lateral sostenido
+        // Movimiento lateral, asegurarte de que no se afecte por la cámara
         if (moveLeft)
         {
             velocity.x = -moveSpeed;
@@ -31,10 +31,11 @@ public class PlayerMobileController : MonoBehaviour
         }
         else
         {
-            velocity.x = 0; // Deja de moverse si no se toca nada
+            velocity.x = 0;
         }
 
-        rb.velocity = new Vector3(velocity.x, velocity.y, velocity.z);
+        // Mantener el jugador en su lugar en el eje y (sin ser afectado por la cámara).
+        rb.velocity = new Vector3(velocity.x, rb.velocity.y, rb.velocity.z);
 
         // Salto
         if (canJump)
