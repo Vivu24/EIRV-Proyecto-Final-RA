@@ -229,6 +229,38 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &74672568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74672569}
+  m_Layer: 0
+  m_Name: EfectoComer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74672569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74672568}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1144302530}
+  m_Father: {fileID: 2049266544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164857819
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,10 +531,7 @@ MonoBehaviour:
   frutasSpawner: {fileID: 1144302529}
   eatPos: {fileID: 333456413}
   sonidoComer: {fileID: 8300000, guid: 379f5fe2fcdf0bf4db15113f4719e384, type: 3}
-  bed: {fileID: 2039086245}
   sonidoDormir: {fileID: 8300000, guid: 449b06c1877e14f4f8f1d279ead03db6, type: 3}
-  bicho: {fileID: 1713779987}
-  zzzEffect: {fileID: 1536420020}
 --- !u!82 &471478678
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1581,6 +1610,10 @@ PrefabInstance:
     - target: {fileID: -3031441753277035756, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
       propertyPath: m_Name
       value: BichoPrueba
+      objectReference: {fileID: 0}
+    - target: {fileID: -3031441753277035756, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -1668918428060068282, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6696,7 +6729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2049266544}
+  m_Father: {fileID: 74672569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294463367
 GameObject:
@@ -7199,7 +7232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1536420021
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -12295,11 +12328,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686577684}
   m_CullTransparentMesh: 1
---- !u!1 &1713779987 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3031441753277035756, guid: 40c9823f2e2b3224ea891f96c1497945, type: 3}
-  m_PrefabInstance: {fileID: 1022392582}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1980071382
 GameObject:
   m_ObjectHideFlags: 0
@@ -12640,7 +12668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d6b707941f56fd14d879676434ad3959, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12650,11 +12678,6 @@ PrefabInstance:
 --- !u!4 &2039086244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d6b707941f56fd14d879676434ad3959, type: 3}
-  m_PrefabInstance: {fileID: 2039086243}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2039086245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d6b707941f56fd14d879676434ad3959, type: 3}
   m_PrefabInstance: {fileID: 2039086243}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049266540
@@ -12760,11 +12783,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1144302530}
   - {fileID: 18848524}
   - {fileID: 73138521}
   - {fileID: 1142161669}
   - {fileID: 418767913}
+  - {fileID: 74672569}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2049266545
