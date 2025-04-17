@@ -14,10 +14,12 @@ public class PlatformSpawner : MonoBehaviour
     public int initialPlatforms = 3;
     private float lastSpawnY;
     private List<GameObject> platforms = new List<GameObject>();
+    public GameObject platformSpawner;
 
     void Start()
     {
-        lastSpawnY = player.position.y;
+        lastSpawnY = player.localPosition.y;
+
         for (int i = 0; i < initialPlatforms; i++)
         {
             SpawnPlatform(lastSpawnY + (i * ySpacing));
@@ -26,7 +28,7 @@ public class PlatformSpawner : MonoBehaviour
 
     void Update()
     {
-        if (player.position.y > lastSpawnY - spawnDistance)
+        if (player.localPosition.y > lastSpawnY - spawnDistance)
         {
             SpawnPlatform(lastSpawnY + ySpacing);
             lastSpawnY += ySpacing;
@@ -38,6 +40,7 @@ public class PlatformSpawner : MonoBehaviour
         float xPosition = Random.Range(minX, maxX);
         float zPosition = Random.Range(minZ, maxZ);
         GameObject newPlatform = Instantiate(platformPrefab, new Vector3(xPosition, yPosition, zPosition), Quaternion.identity);
+        newPlatform.transform.SetParent(platformSpawner.transform);
         platforms.Add(newPlatform);
     }
 }
