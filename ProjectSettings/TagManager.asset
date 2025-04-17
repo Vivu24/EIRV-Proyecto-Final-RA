@@ -11,6 +11,7 @@ TagManager:
   - Comer
   - Minijuego
   - Hall
+  - Cama
   layers:
   - Default
   - TransparentFX

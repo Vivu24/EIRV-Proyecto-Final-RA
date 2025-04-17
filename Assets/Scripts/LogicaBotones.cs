@@ -39,9 +39,9 @@ public class LogicaBotones : MonoBehaviour
         if (efectoDormir != null)
             efectoDormir.SetActive(false);
 
-        efectoDormir = GameObject.FindWithTag("Dormir");
-        if (efectoDormir != null)
-            efectoDormir.SetActive(false);
+        //efectoDormir = GameObject.FindWithTag("Dormir");
+        //if (efectoDormir != null)
+        //    efectoDormir.SetActive(false);
 
         hall = GameObject.FindWithTag("Hall");
 

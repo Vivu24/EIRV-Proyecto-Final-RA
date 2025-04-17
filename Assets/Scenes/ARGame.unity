@@ -8107,7 +8107,7 @@ GameObject:
   - component: {fileID: 1536420021}
   m_Layer: 0
   m_Name: ZzzEffect
-  m_TagString: Untagged
+  m_TagString: Dormir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13848,6 +13848,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d6b707941f56fd14d879676434ad3959, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d6b707941f56fd14d879676434ad3959, type: 3}
+      propertyPath: m_TagString
+      value: Cama
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
