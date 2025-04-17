@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Ducha
   - MenuPausa
+  - Dormir
   layers:
   - Default
   - TransparentFX
