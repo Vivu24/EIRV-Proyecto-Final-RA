@@ -17,9 +17,10 @@ public class LogicaBotones : MonoBehaviour
     [SerializeField] GameObject[] frutas;
     [SerializeField] GameObject frutasSpawner;
     private Vector3 eatPos;
-    [SerializeField] AudioClip sonidoComer;
 
+    [SerializeField] AudioClip sonidoComer;
     [SerializeField] AudioClip sonidoDormir;
+
     private GameObject bicho;
 
     private AudioSource audioSource;
@@ -71,9 +72,17 @@ public class LogicaBotones : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
-    public void Jugar()
+
+    public void Jugar(AudioClip clickSound)
     {
-        SceneManager.LoadScene("ARGame");
+        StartCoroutine(PlaySoundAndChangeScene(clickSound, "ARGame"));
+    }
+
+    IEnumerator PlaySoundAndChangeScene(AudioClip audioclip, string scene)
+    {
+        audioSource.PlayOneShot(audioclip);
+        yield return new WaitForSeconds(audioclip.length);
+        SceneManager.LoadScene(scene);
     }
 
     public void Saltos()
@@ -169,11 +178,12 @@ public class LogicaBotones : MonoBehaviour
     }
     #endregion
 
-    public void Settings()
+    public void Settings(AudioClip audio)
     {
         if (menuPausa != null)
         {
             menuPausa.SetActive(true);
+            audioSource.PlayOneShot(audio);
             settings.SetActive(false);
         }
         else
@@ -182,9 +192,10 @@ public class LogicaBotones : MonoBehaviour
         }
     }
 
-    public void BackToGame()
+    public void BackToGame(AudioClip audio)
     {
         menuPausa.SetActive(false);
+        audioSource.PlayOneShot(audio);
         settings.SetActive(true);
     }
 }
