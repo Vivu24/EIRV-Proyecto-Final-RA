@@ -3091,6 +3091,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5929553504721677140, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6507891771471754763, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
       propertyPath: inGameUI
       value: 
@@ -3111,6 +3115,10 @@ PrefabInstance:
       propertyPath: sonidoEncestar
       value: 
       objectReference: {fileID: 8300000, guid: a4713556c50b3414aa6be55784f6bd1a, type: 3}
+    - target: {fileID: 6898782147755696301, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7367589528133143407, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
       propertyPath: m_Name
       value: CanastaBasket
@@ -3127,7 +3135,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Celebration
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8576842100709940151, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2638804121174923218, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}

@@ -699,6 +699,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2013752343}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: f64fb461832f0c249b6de6550b15208e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &188436707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,6 +2094,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2013752343}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: f64fb461832f0c249b6de6550b15208e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1438859309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2817,12 +2841,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2013752343}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2837,7 +2861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Jugar
+      value: Creditos
       objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2850,18 +2874,18 @@ PrefabInstance:
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: da00916e8db05254a85d345ff4450e08, type: 3}
+      objectReference: {fileID: 8300000, guid: f64fb461832f0c249b6de6550b15208e, type: 3}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: f64fb461832f0c249b6de6550b15208e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6226027897432155911, guid: fb7a5df3f4f4d0c449520061280dfcfe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
