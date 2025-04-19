@@ -3135,8 +3135,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Celebration
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8576842100709940151, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2638804121174923218, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
