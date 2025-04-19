@@ -85,12 +85,9 @@ public class LogicaBotones : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public void Saltos()
+    public void Basket(AudioClip clickSound)
     {
-        miniJuego.SetActive(true);
-
-        bicho.SetActive(false);
-        hall.SetActive(false);
+        StartCoroutine(PlaySoundAndChangeScene(clickSound, "Basket"));
     }
     #endregion
 
