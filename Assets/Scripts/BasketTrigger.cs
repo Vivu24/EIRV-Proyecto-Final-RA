@@ -58,11 +58,12 @@ public class BasketTrigger : MonoBehaviour
             if (particleSystem != null)
                 particleSystem.Play();
 
-            audioSource.PlayOneShot(sonidoEncestar);
+            if(audioSource != null)
+                audioSource.PlayOneShot(sonidoEncestar);
 
             UpdateScoreUI();
 
-            Destroy(other.gameObject); // opcional
+            Destroy(other.gameObject);
         }
     }
 
