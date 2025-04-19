@@ -181,7 +181,11 @@ public class LogicaBotones : MonoBehaviour
         {
             menuPausa.SetActive(true);
             audioSource.PlayOneShot(audio);
-            settings.SetActive(false);
+
+            if (settings != null)
+            {
+                settings.SetActive(false);
+            }
         }
         else
         {
