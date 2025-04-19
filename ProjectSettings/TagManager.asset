@@ -15,6 +15,7 @@ TagManager:
   - Ball
   - Settings
   - Celebration
+  - Creditos
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class LogicaBotones : MonoBehaviour
     private GameObject objetoDucha;
     private GameObject efectoDormir;
     private GameObject menuPausa;
-    private GameObject miniJuego;
+    private GameObject creditos;
     private GameObject hall;
     private GameObject settings;
 
@@ -46,9 +46,9 @@ public class LogicaBotones : MonoBehaviour
 
         hall = GameObject.FindWithTag("Hall");
 
-        miniJuego = GameObject.FindWithTag("Minijuego");
-        if (miniJuego != null)
-            miniJuego.SetActive(false);
+        creditos = GameObject.FindWithTag("Creditos");
+        if (creditos != null)
+            creditos.SetActive(false);
 
         settings = GameObject.FindWithTag("Settings");
 
@@ -191,6 +191,11 @@ public class LogicaBotones : MonoBehaviour
         {
             Debug.LogWarning("No se encontró ningún objeto con el tag 'MenuPausa'.");
         }
+    }
+
+    public void Creditos()
+    {
+        creditos.SetActive(true);
     }
 
     public void BackToGame(AudioClip audio)
