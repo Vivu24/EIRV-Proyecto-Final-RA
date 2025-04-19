@@ -59,7 +59,6 @@ public class LogicaBotones : MonoBehaviour
             initTransformBicho = bicho.transform;
         }
     }
-
     private void Update()
     {
         if(bicho != null)
