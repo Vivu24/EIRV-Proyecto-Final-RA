@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ARGame.unity
     guid: c3fb6b8669853c143b4f97023b11992e
+  - enabled: 1
+    path: Assets/Scenes/Basket.unity
+    guid: cabf86319ec876b4795a61cd2d1bb83e
   m_configObjects: {}
