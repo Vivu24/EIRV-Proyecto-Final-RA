@@ -51,7 +51,6 @@ public class BallLauncher : MonoBehaviour
                 chargeSlider.gameObject.SetActive(false);
         }
     }
-
     void LaunchBall(float force)
     {
         Vector3 spawnPos = cameraTransform.position + cameraTransform.forward * 0.5f;
@@ -60,5 +59,13 @@ public class BallLauncher : MonoBehaviour
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         Vector3 launchDir = cameraTransform.forward * force;
         rb.AddForce(launchDir, ForceMode.Impulse);
+
+        // Aplicar torque para rotación
+        Vector3 randomTorque = new Vector3(
+            Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f),
+            Random.Range(-1f, 1f)
+        ) * force * 0.1f; // Ajusta el multiplicador para controlar la intensidad de la rotación
+        rb.AddTorque(randomTorque, ForceMode.Impulse);
     }
 }
