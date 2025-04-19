@@ -12,6 +12,9 @@ public class BasketTrigger : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text timerText;
 
+    private AudioSource audioSource;
+    [SerializeField] AudioClip sonidoEncestar;
+
     public GameObject inGameUI;
     public GameObject gameOverUI;
 
@@ -20,6 +23,7 @@ public class BasketTrigger : MonoBehaviour
     private void Start()
     {
         particleSystem = GameObject.FindWithTag("Celebration").GetComponent<ParticleSystem>();
+        audioSource = GetComponent<AudioSource>();
 
         UpdateScoreUI();
         UpdateTimerUI();
@@ -53,6 +57,8 @@ public class BasketTrigger : MonoBehaviour
 
             if (particleSystem != null)
                 particleSystem.Play();
+
+            audioSource.PlayOneShot(sonidoEncestar);
 
             UpdateScoreUI();
 

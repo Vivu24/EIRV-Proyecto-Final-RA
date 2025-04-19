@@ -3107,6 +3107,10 @@ PrefabInstance:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1524302063}
+    - target: {fileID: 6507891771471754763, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+      propertyPath: sonidoEncestar
+      value: 
+      objectReference: {fileID: 8300000, guid: a4713556c50b3414aa6be55784f6bd1a, type: 3}
     - target: {fileID: 7367589528133143407, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
       propertyPath: m_Name
       value: CanastaBasket
