@@ -195,4 +195,10 @@ public class LogicaBotones : MonoBehaviour
         audioSource.PlayOneShot(audio);
         settings.SetActive(true);
     }
+
+    public void ExtiGame(AudioClip audio)
+    {
+        audioSource.PlayOneShot(audio);
+        Application.Quit();
+    }
 }
