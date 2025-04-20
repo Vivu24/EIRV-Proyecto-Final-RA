@@ -180,7 +180,10 @@ public class LogicaBotones : MonoBehaviour
         if (menuPausa != null)
         {
             menuPausa.SetActive(true);
-            hall.SetActive(false); // barra inferior
+
+            if(hall != null)
+                hall.SetActive(false); // barra inferior
+
             audioSource.pitch = Random.Range(0.7f, 1.3f);
             audioSource.PlayOneShot(audio);
 
