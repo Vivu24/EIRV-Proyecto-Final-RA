@@ -29,6 +29,8 @@ public class LogicaBotones : MonoBehaviour
     private bool estaComiendo = false;
     private bool estaDuchando = false;
 
+    private Image pantallaOscura;
+
     private void Start()
     {
         objetoDucha = GameObject.FindWithTag("Ducha");
@@ -57,6 +59,12 @@ public class LogicaBotones : MonoBehaviour
         if (bicho != null)
         {
             initTransformBicho = bicho.transform;
+        }
+
+        GameObject pantalla = GameObject.FindWithTag("PantallaOscura");
+        if (pantalla != null)
+        {
+            pantallaOscura = pantalla.GetComponent<Image>();
         }
     }
     private void Update()
@@ -158,6 +166,8 @@ public class LogicaBotones : MonoBehaviour
             audioSource.Play();
 
             estaDurmiendo = true;
+
+            StartCoroutine(FadePantalla(true));
         }
         else if(estaDurmiendo)
         {
@@ -169,8 +179,28 @@ public class LogicaBotones : MonoBehaviour
             efectoDormir.SetActive(false);
 
             estaDurmiendo = false;
+
+            StartCoroutine(FadePantalla(false));
         }
     }
+
+    private IEnumerator FadePantalla(bool oscurecer, float duracion = 1f)
+    {
+        float t = 0f;
+        Color colorInicial = pantallaOscura.color;
+        Color colorFinal = oscurecer ? new Color(0, 0, 0, 0.6f) : new Color(0, 0, 0, 0);
+
+        while (t < duracion)
+        {
+            pantallaOscura.color = Color.Lerp(colorInicial, colorFinal, t / duracion);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        pantallaOscura.color = colorFinal;
+    }
+
+
     #endregion
 
     public void Settings(AudioClip audio)

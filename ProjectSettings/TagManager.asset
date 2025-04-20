@@ -16,6 +16,7 @@ TagManager:
   - Settings
   - Celebration
   - Creditos
+  - PantallaOscura
   layers:
   - Default
   - TransparentFX
