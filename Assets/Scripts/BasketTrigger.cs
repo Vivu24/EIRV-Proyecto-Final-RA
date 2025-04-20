@@ -10,6 +10,7 @@ public class BasketTrigger : MonoBehaviour
     public float timeLeft = 60f; // 1 minuto
 
     public TMP_Text scoreText;
+    public TMP_Text finalScoreText;
     public TMP_Text timerText;
 
     private AudioSource audioSource;
@@ -53,7 +54,6 @@ public class BasketTrigger : MonoBehaviour
         if (other.CompareTag("Ball"))
         {
             score++;
-            Debug.Log("Canasta! Puntuación: " + score);
 
             if (particleSystem != null)
                 particleSystem.Play();
@@ -76,7 +76,10 @@ public class BasketTrigger : MonoBehaviour
     void UpdateScoreUI()
     {
         if (scoreText != null)
-            scoreText.text = "Puntuación: " + score;
+            scoreText.text = "Score: " + score;
+
+        if (finalScoreText != null)
+            finalScoreText.text = "Score: " + score;
     }
 
     void UpdateTimerUI()
@@ -85,7 +88,7 @@ public class BasketTrigger : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(timeLeft / 60);
             int seconds = Mathf.FloorToInt(timeLeft % 60);
-            timerText.text = string.Format("Tiempo: {0:00}:{1:00}", minutes, seconds);
+            timerText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
         }
     }
 }
