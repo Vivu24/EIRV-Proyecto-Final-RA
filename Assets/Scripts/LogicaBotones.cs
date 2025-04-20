@@ -30,6 +30,7 @@ public class LogicaBotones : MonoBehaviour
     private bool estaDuchando = false;
 
     private Image pantallaOscura;
+    [SerializeField] GameObject efectoComerPrefab;
 
     private void Start()
     {
@@ -150,6 +151,10 @@ public class LogicaBotones : MonoBehaviour
         audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(sonidoComer);
         Destroy(fruta);
+
+        GameObject efecto = Instantiate(efectoComerPrefab, eatPos, Quaternion.identity);
+        Destroy(efecto, 2f); 
+
         estaComiendo = false;
     }
     #endregion
@@ -161,7 +166,7 @@ public class LogicaBotones : MonoBehaviour
         {
             efectoDormir.SetActive(true);
 
-            bicho.transform.position += new Vector3(0, 1.25f, 0);
+            bicho.transform.position += new Vector3(0, 0.75f, 0);
 
             audioSource.clip = sonidoDormir;
             audioSource.loop = true;
@@ -173,7 +178,7 @@ public class LogicaBotones : MonoBehaviour
         }
         else if(estaDurmiendo)
         {
-            bicho.transform.position -= new Vector3(0, 1.25f, 0);
+            bicho.transform.position -= new Vector3(0, 0.75f, 0);
 
             audioSource.Stop();
             audioSource.loop = false;
