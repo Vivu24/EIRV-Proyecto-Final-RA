@@ -3418,7 +3418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1721774001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4512,6 +4512,7 @@ MonoBehaviour:
   frutasSpawner: {fileID: 0}
   sonidoComer: {fileID: 8300000, guid: 379f5fe2fcdf0bf4db15113f4719e384, type: 3}
   sonidoDormir: {fileID: 8300000, guid: 449b06c1877e14f4f8f1d279ead03db6, type: 3}
+  efectoComerPrefab: {fileID: 0}
 --- !u!4 &2013752342
 Transform:
   m_ObjectHideFlags: 0
