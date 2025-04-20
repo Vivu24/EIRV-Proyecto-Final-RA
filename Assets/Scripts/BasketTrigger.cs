@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class BasketTrigger : MonoBehaviour
 {
@@ -66,8 +67,14 @@ public class BasketTrigger : MonoBehaviour
 
             UpdateScoreUI();
 
-            Destroy(other.gameObject);
+            StartCoroutine(DestroyBallAfterDelay(other.gameObject, 0.5f));
         }
+    }
+
+    private IEnumerator DestroyBallAfterDelay(GameObject ball, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(ball);
     }
 
     void GameOver()

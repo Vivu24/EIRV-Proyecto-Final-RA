@@ -5540,6 +5540,14 @@ PrefabInstance:
       propertyPath: sonidoEncestar
       value: 
       objectReference: {fileID: 8300000, guid: 1379b2a628c2e2046b70cba70a2cab7b, type: 3}
+    - target: {fileID: 6898782147755696301, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6898782147755696301, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.725
+      objectReference: {fileID: 0}
     - target: {fileID: 7367589528133143407, guid: 8bc3b7577f093e24e8552193dd74fbfa, type: 3}
       propertyPath: m_Name
       value: CanastaBasket
