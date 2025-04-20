@@ -78,6 +78,7 @@ public class LogicaBotones : MonoBehaviour
 
     IEnumerator PlaySoundAndChangeScene(AudioClip audioclip, string scene)
     {
+        audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(audioclip);
         yield return new WaitForSeconds(audioclip.length);
         SceneManager.LoadScene(scene);
@@ -138,6 +139,7 @@ public class LogicaBotones : MonoBehaviour
             yield return null;
         }
 
+        audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(sonidoComer);
         Destroy(fruta);
         estaComiendo = false;
@@ -179,6 +181,7 @@ public class LogicaBotones : MonoBehaviour
         {
             menuPausa.SetActive(true);
             hall.SetActive(false); // barra inferior
+            audioSource.pitch = Random.Range(0.7f, 1.3f);
             audioSource.PlayOneShot(audio);
 
             if (settings != null)
@@ -200,6 +203,7 @@ public class LogicaBotones : MonoBehaviour
     public void BackToGame(AudioClip audio)
     {
         menuPausa.SetActive(false);
+        audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(audio);
         hall.SetActive(true); // barra inferior
         settings.SetActive(true);
@@ -207,6 +211,7 @@ public class LogicaBotones : MonoBehaviour
 
     public void ExtiGame(AudioClip audio)
     {
+        audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(audio);
         Application.Quit();
     }

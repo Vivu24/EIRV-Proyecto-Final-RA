@@ -59,7 +59,10 @@ public class BasketTrigger : MonoBehaviour
                 particleSystem.Play();
 
             if(audioSource != null)
+            {
+                audioSource.pitch = Random.Range(0.7f, 1.3f);
                 audioSource.PlayOneShot(sonidoEncestar);
+            }
 
             UpdateScoreUI();
 
