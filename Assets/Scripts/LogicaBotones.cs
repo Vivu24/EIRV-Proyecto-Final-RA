@@ -178,6 +178,7 @@ public class LogicaBotones : MonoBehaviour
         if (menuPausa != null)
         {
             menuPausa.SetActive(true);
+            hall.SetActive(false); // barra inferior
             audioSource.PlayOneShot(audio);
 
             if (settings != null)
@@ -200,6 +201,7 @@ public class LogicaBotones : MonoBehaviour
     {
         menuPausa.SetActive(false);
         audioSource.PlayOneShot(audio);
+        hall.SetActive(true); // barra inferior
         settings.SetActive(true);
     }
 
