@@ -15,6 +15,8 @@ public class BallLauncher : MonoBehaviour
     private float currentForce = 0f;
     private bool isCharging = false;
 
+    public AudioClip throwingSound;
+    public AudioSource audioSource;
     void Update()
     {
         if (isCharging)
@@ -53,6 +55,9 @@ public class BallLauncher : MonoBehaviour
     }
     void LaunchBall(float force)
     {
+        audioSource.pitch = Random.Range(0.7f, 1.5f);
+        audioSource.PlayOneShot(throwingSound);
+
         Vector3 spawnPos = cameraTransform.position + cameraTransform.forward * 0.5f;
         GameObject ball = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
 
