@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -243,7 +244,10 @@ public class LogicaBotones : MonoBehaviour
         menuPausa.SetActive(false);
         audioSource.pitch = Random.Range(0.7f, 1.3f);
         audioSource.PlayOneShot(audio);
-        hall.SetActive(true); // barra inferior
+
+        if(hall != null)
+            hall.SetActive(true); // barra inferior
+
         settings.SetActive(true);
     }
 
